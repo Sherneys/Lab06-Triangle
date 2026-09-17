@@ -37,6 +37,9 @@ explains Parts II and IV.
 Fixed for the whole lab: the render target is an off-screen **800 × 600** image,
 so **480,000 pixels** is the denominator behind every coverage figure below.
 
+Every panel quoted in this report is reproduced as a screenshot in **Appendix A**,
+and the raw recordings are in `report/out-*.txt`.
+
 ---
 
 ## 1. What I wrote
@@ -734,8 +737,11 @@ nothing left in the scene to instance away.
 
 ### 7.3 One captured frame
 
-**Trace:** `report/probe.gputrace`, 48 MB, captured from `Viritphons-MacBook-Pro.local`
-(Apple M1 Pro) on macOS 27.0 and replayed in Xcode 27.0.
+**Trace:** `report/probe.gputrace`, captured from `Viritphons-MacBook-Pro.local`
+(Apple M1 Pro) on macOS 27.0 and replayed in Xcode 27.0. The counters quoted below
+are from the capture shown in the screenshot; the file was regenerated once
+afterwards with the same configuration, so its size on disk (175 MB) is larger
+than the 48 MB of the screenshotted run — see the caveat about `SCOPE=1` below.
 
 Two things had to be worked around before a capture existed at all, and both are
 worth recording rather than papering over.
@@ -838,10 +844,10 @@ the 5,000-instance one, for a scene with 25× fewer instances. The scene draws
 account for only ~900 of them. The rest are `probe.cpp`'s idle loop,
 `while (windowOpen(win)) presentTarget(dev, win, target);`, which presents as fast
 as the display allows for as long as the window stays open — and `SCOPE=1` captures
-the entire `VkDevice` lifetime, idle spin included. That is also why the "small"
-trace is 187 MB against the full one's 48 MB: I left its window open longer. The
-capture stops growing only when the window is closed, so with this scope the
-useful advice is to close it promptly.
+the entire `VkDevice` lifetime, idle spin included. It is also why the trace files here range
+from 48 MB to 187 MB for the *same* program: the only variable is how long the
+window sat open before it was closed. The capture stops growing when the window
+closes, so with this scope the useful advice is to close it promptly.
 
 **One unplanned result, from the capture overhead itself.** Every number in the
 captured run is inflated, because Metal is recording each call:
@@ -985,11 +991,45 @@ filled; an entry with those blank does not meet the requirement⟩`
 
 - [x] `student.cpp` — five TASKs, builds clean with `-Wall -Wextra`
 - [x] `predictions.md` — Part II's six cells, written before measuring
-- [x] `make info` panel, device name, subgroup size, timestamp period
+- [x] `make info` screenshot — Appendix A
 - [x] Part I triangle image
-- [x] Panels for Parts II–VI
+- [x] Screenshots of the panels for Parts II–VI — Appendix A
 - [x] Six write-ups
-- [x] One GPU frame capture — `report/probe.gputrace`, 48 MB, replays in Xcode 27.0
+- [x] One GPU frame capture — `report/probe.gputrace`, replays in Xcode 27.0
 - [x] Screenshot of the capture — `report/capture-summary-full.png`
 - [ ] *Optional:* install Xcode's Metal Toolchain if you want per-encoder GPU times — see §7.3
 - [ ] AI prompt log — add your own entries 6 onwards
+
+---
+
+## Appendix A — Panel screenshots
+
+Each part writes its panel to stdout and then opens a window. The runs were
+recorded with `script(1)` into `report/out-*.txt`, and these four screenshots
+show those recordings displayed in Terminal (`PANELS.command`) — the text is the
+programs' own output, byte for byte, not a re-typing of it. The window title bar
+shows the shell that produced them.
+
+### Part 0 — `make info`, and Part I — `make triangle`
+
+<img src="img-panels-1.png" class="fig" alt="make info and make triangle panels">
+
+### Part II — `make cost`, and Part III — `make stripes`
+
+<img src="img-panels-2.png" class="fig" alt="make cost and make stripes panels">
+
+### Part IV — `make earlyz`, and Part V — `make index`
+
+<img src="img-panels-3.png" class="fig" alt="make earlyz and make index panels">
+
+### Part VI — `make probe`
+
+<img src="img-panels-4.png" class="fig" alt="make probe panel">
+
+### The images the programs wrote
+
+`triangle.cpp` and `index.cpp` found no reference to compare against, so they
+wrote their own: `reference/triangle.png` (§2) and `reference/index.png` (§6).
+The Xcode GPU capture is in §7.3 and saved full size as
+`report/capture-summary-full.png`.
+
