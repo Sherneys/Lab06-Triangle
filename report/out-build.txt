@@ -1,0 +1,31 @@
+-- Configuring done (0.1s)
+-- Generating done (0.0s)
+-- Build files have been written to: /Users/viritphonchongpermwattanapol/Desktop/Chula/Study/Year3/ComGraph/Lab06-Triangle/build
+[ 28%] Built target shaders
+[ 50%] Built target lab06core
+[ 52%] Building CXX object CMakeFiles/info.dir/student.cpp.o
+[ 54%] Linking CXX executable info
+[ 57%] Built target info
+[ 59%] Building CXX object CMakeFiles/triangle.dir/student.cpp.o
+[ 61%] Linking CXX executable triangle
+[ 64%] Built target triangle
+[ 66%] Building CXX object CMakeFiles/cost.dir/src/cost.cpp.o
+[ 69%] Building CXX object CMakeFiles/cost.dir/student.cpp.o
+[ 71%] Linking CXX executable cost
+[ 71%] Built target cost
+[ 73%] Building CXX object CMakeFiles/stripes.dir/src/stripes.cpp.o
+[ 76%] Building CXX object CMakeFiles/stripes.dir/student.cpp.o
+[ 78%] Linking CXX executable stripes
+[ 78%] Built target stripes
+[ 80%] Building CXX object CMakeFiles/earlyz.dir/src/earlyz.cpp.o
+[ 83%] Building CXX object CMakeFiles/earlyz.dir/student.cpp.o
+[ 85%] Linking CXX executable earlyz
+[ 85%] Built target earlyz
+[ 88%] Building CXX object CMakeFiles/index.dir/src/index.cpp.o
+[ 90%] Building CXX object CMakeFiles/index.dir/student.cpp.o
+[ 92%] Linking CXX executable index
+[ 92%] Built target index
+[ 95%] Building CXX object CMakeFiles/probe.dir/src/probe.cpp.o
+[ 97%] Building CXX object CMakeFiles/probe.dir/student.cpp.o
+[100%] Linking CXX executable probe
+[100%] Built target probe

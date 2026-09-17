@@ -1,0 +1,5 @@
+^D  loops          0, 500, 2000 (ms median, in the vertex stage then the fragment stage)
+  1 triangle, small        0.031   0.101   0.257  |   0.029   0.070   0.225
+  1 triangle, fullscreen    0.030   0.103   0.268  |   0.030   0.681   1.675
+  100k instances, small     0.447  11.767  46.614  |   0.447   2.748  10.538
+  rasterized     100.0% of the target

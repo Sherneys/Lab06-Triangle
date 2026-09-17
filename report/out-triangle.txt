@@ -1,0 +1,6 @@
+^D  vertex buffer  3 vertices, stride 20, offsets [0 8 ]
+  uniform block  80 bytes
+  rasterized     12.5% of the target
+  centroid       pixel (400, 350) reads (85, 85, 86)
+  image          no reference found, wrote one: check it by eye
+  gpu time       0.030 ms median, 0.058 ms p95

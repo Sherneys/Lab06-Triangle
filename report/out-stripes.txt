@@ -1,0 +1,11 @@
+^D  subgroup size  32 lanes, 2000 loops
+  stripe    1 px     4.024 ms median
+  stripe    2 px     3.925 ms median
+  stripe    4 px     3.935 ms median
+  stripe    8 px     2.122 ms median
+  stripe   16 px     2.022 ms median
+  stripe   32 px     2.010 ms median
+  stripe   64 px     2.033 ms median
+  stripe  128 px     2.015 ms median
+  no branch         2.007 ms median
+  rasterized     87.5% of the target

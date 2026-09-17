@@ -1,0 +1,6 @@
+^D  layers         8 copies, 2000 loops each
+  early-Z      front-to-back   2.017 ms median, 2.087 ms p95
+  early-Z      back-to-front   2.000 ms median, 2.158 ms p95
+  writes depth front-to-back   17.542 ms median, 18.418 ms p95
+  writes depth back-to-front   17.664 ms median, 19.266 ms p95
+  rasterized     87.5% of the target

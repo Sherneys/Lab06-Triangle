@@ -1,0 +1,7 @@
+^D  unindexed      6 vertices x 20 B = 120 bytes
+  indexed        4 x 20 B + 6 x 2 B = 92 bytes
+  saving         23.3%
+  index type     VK_INDEX_TYPE_UINT16
+  rasterized     25.0% of the target
+  image          no reference found, wrote one: check it by eye
+  gpu time       0.027 ms median, 0.031 ms p95

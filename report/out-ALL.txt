@@ -1,0 +1,61 @@
+=== configuring + building ===
+build exit code 0 (log: report/out-build.txt)
+=== info      (up to 15s) ... captured 6 lines
+=== triangle  (up to 25s) ... report/runall.sh: line 19: 37212 Terminated: 15          script -q "$OUT/out-$name.txt" "$ROOT/build/$name" > /dev/null 2>&1
+captured 0 lines
+=== index     (up to 25s) ... report/runall.sh: line 19: 37292 Terminated: 15          script -q "$OUT/out-$name.txt" "$ROOT/build/$name" > /dev/null 2>&1
+captured 0 lines
+=== earlyz    (up to 70s) ... report/runall.sh: line 19: 37374 Terminated: 15          script -q "$OUT/out-$name.txt" "$ROOT/build/$name" > /dev/null 2>&1
+captured 6 lines
+=== stripes   (up to 100s) ... report/runall.sh: line 19: 37583 Terminated: 15          script -q "$OUT/out-$name.txt" "$ROOT/build/$name" > /dev/null 2>&1
+captured 11 lines
+=== cost      (up to 150s) ... report/runall.sh: line 19: 37897 Terminated: 15          script -q "$OUT/out-$name.txt" "$ROOT/build/$name" > /dev/null 2>&1
+captured 5 lines
+=== probe     (up to 150s) ... report/runall.sh: line 19: 38367 Terminated: 15          script -q "$OUT/out-$name.txt" "$ROOT/build/$name" > /dev/null 2>&1
+captured 8 lines
+
+=== all panels ===
+---------- info ----------
+^D  device      Apple M1 Pro
+  api         1.3.357
+  subgroup    32 lanes
+  timestamps  1 ns per tick
+  statistics  pipeline statistics unsupported
+  student.cpp 3 vertices, stride 20, 2 attributes
+---------- triangle ----------
+---------- index ----------
+---------- earlyz ----------
+^D  layers         8 copies, 2000 loops each
+  early-Z      front-to-back   2.017 ms median, 2.087 ms p95
+  early-Z      back-to-front   2.000 ms median, 2.158 ms p95
+  writes depth front-to-back   17.542 ms median, 18.418 ms p95
+  writes depth back-to-front   17.664 ms median, 19.266 ms p95
+  rasterized     87.5% of the target
+---------- stripes ----------
+^D  subgroup size  32 lanes, 2000 loops
+  stripe    1 px     4.024 ms median
+  stripe    2 px     3.925 ms median
+  stripe    4 px     3.935 ms median
+  stripe    8 px     2.122 ms median
+  stripe   16 px     2.022 ms median
+  stripe   32 px     2.010 ms median
+  stripe   64 px     2.033 ms median
+  stripe  128 px     2.015 ms median
+  no branch         2.007 ms median
+  rasterized     87.5% of the target
+---------- cost ----------
+^D  loops          0, 500, 2000 (ms median, in the vertex stage then the fragment stage)
+  1 triangle, small        0.031   0.101   0.257  |   0.029   0.070   0.225
+  1 triangle, fullscreen    0.030   0.103   0.268  |   0.030   0.681   1.675
+  100k instances, small     0.447  11.767  46.614  |   0.447   2.748  10.538
+  rasterized     100.0% of the target
+---------- probe ----------
+^D  storage        320000 bytes, stride 64
+                 baseline  half px  half inst  half bytes    cpu
+  scene 1       3.381    1.589      3.380       3.379   4.522
+  scene 2       2.542    1.183      2.545       1.277   3.473
+  scene 3       0.302    0.305      0.183       0.304   1.082
+  5000 draws    gpu 0.304 ms, cpu 1.082 ms
+  1 draw        gpu 0.041 ms, cpu 0.358 ms
+  rasterized     4.2% of the target
+ALLDONE

@@ -1,0 +1,8 @@
+^D  storage        320000 bytes, stride 64
+                 baseline  half px  half inst  half bytes    cpu
+  scene 1       3.381    1.589      3.380       3.379   4.522
+  scene 2       2.542    1.183      2.545       1.277   3.473
+  scene 3       0.302    0.305      0.183       0.304   1.082
+  5000 draws    gpu 0.304 ms, cpu 1.082 ms
+  1 draw        gpu 0.041 ms, cpu 0.358 ms
+  rasterized     4.2% of the target
