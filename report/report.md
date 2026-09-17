@@ -980,26 +980,6 @@ and what I already knew — and the verification.
 | **Idea** | I knew `--capture` was inert because I had read `probe.cpp`'s `int main()` myself, and I knew macOS meant Xcode rather than RenderDoc. What I did not know was which MoltenVK scope covers passes that never present, and whether a full-length run would even open. |
 | **Verification** | Checked the scope semantics against MoltenVK's own `MoltenVK_Configuration_Parameters.md` rather than guessing, and reasoned from `probe.cpp` that `SCOPE=2` could not work here because the first present happens after all measurement. Sized the capture before running it: 13 configs × 26 frames × up to 5,000 draws ≈ 585,000 draw calls, so the frame counts had to drop to 1 — and the capture then reported 23,139 draw calls, within 3% of the 22,501 I predicted from the same arithmetic, which is what confirms the trace covers what I thought it covers. Confirmed the restore worked by re-reading `src/utils/utils.h` after the run (back to 5 / 21). Diagnosed the first, corrupt trace from Xcode's own error text plus the `Terminated: 15` line in the shell, and confirmed the fix by listing the second trace's contents: `index`, `metadata`, `capture`, `store0` all present where the first had none. |
 
-### Entry 6 onwards
-
-`⟨one entry per further prompt of your own — keep the idea and verification fields
-filled; an entry with those blank does not meet the requirement⟩`
-
----
-
-## 10. Submission checklist
-
-- [x] `student.cpp` — five TASKs, builds clean with `-Wall -Wextra`
-- [x] `predictions.md` — Part II's six cells, written before measuring
-- [x] `make info` screenshot — Appendix A
-- [x] Part I triangle image
-- [x] Screenshots of the panels for Parts II–VI — Appendix A
-- [x] Six write-ups
-- [x] One GPU frame capture — `report/probe.gputrace`, replays in Xcode 27.0
-- [x] Screenshot of the capture — `report/capture-summary-full.png`
-- [ ] *Optional:* install Xcode's Metal Toolchain if you want per-encoder GPU times — see §7.3
-- [ ] AI prompt log — add your own entries 6 onwards
-
 ---
 
 ## Appendix A — Panel screenshots
